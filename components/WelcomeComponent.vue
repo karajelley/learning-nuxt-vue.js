@@ -26,7 +26,7 @@
             <button class="secondary-button">Contact</button>
         </NuxtLink>
                 <NuxtLink to="/find-address">
-            <button class="secondary-button">Find 🔍</button>
+            <button class="secondary-button">Address Finder 🔍</button>
         </NuxtLink>
     </div>
   </div>
