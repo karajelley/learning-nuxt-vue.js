@@ -10,6 +10,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "@nuxt/ui": "^3.0.2",
     "@nuxtjs/leaflet": "^1.2.6",
     "leaflet": "^1.9.4",
@@ -21,6 +22,7 @@
     "vuetify": "^3.8.0"
   },
   "devDependencies": {
-    "@nuxt/types": "^2.18.1"
+    "@nuxt/types": "^2.18.1",
+    "vite-plugin-vuetify": "^2.1.1"
   }
 }

@@ -1,33 +1,49 @@
 <template>
-  <div>
-    <!-- Address Input -->
-    <input
-      class="primary-input"
-      v-model="address"
-      @keyup.enter="geocodeAddress"
-      placeholder="Enter an address"
-    />
-    <button class="primary-button" @click="geocodeAddress">Search</button>
+  <v-container>
+    <!-- Address Input & Search Button -->
+    <v-row align="center" justify="center">
+      <v-col cols="12" md="8">
+        <v-text-field
+          v-model="address"
+          label="Enter an address"
+          @keyup.enter="geocodeAddress"
+          outlined
+          dense
+          append-inner-icon="mdi-magnify"
+          @click:append-inner="geocodeAddress"
+        />
+      </v-col>
+      <v-col cols="12" md="4">
+        <v-btn color='primary' variant='elevated' block @click="geocodeAddress">
+          <v-icon left>mdi-map-search</v-icon>
+          Search
+        </v-btn>
+      </v-col>
+    </v-row>
 
-    <!-- Map -->
-    <LMap
-      style="height: 350px"
-      :zoom="zoom"
-      :center="center"
-      :use-global-leaflet="false"
-      @ready="onMapReady"
-      @locationfound="onLocationFound"
-      @click="onMapClick"
-    >
-      <LTileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution="&copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors"
-        layer-type="base"
-        name="OpenStreetMap"
-      />
-      <LMarker v-if="markerPosition" :lat-lng="markerPosition" />
-    </LMap>
-  </div>
+    <!-- Map Container -->
+    <v-card elevation="4">
+      <v-container fluid>
+        <LMap
+          style="height: 350px"
+          :zoom="zoom"
+          :center="center"
+          :use-global-leaflet="false"
+          @ready="onMapReady"
+          @locationfound="onLocationFound"
+          @click="onMapClick"
+        >
+          <LTileLayer
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution="&copy; <a href='https://www.openstreetmap.org/'>OpenStreetMap</a> contributors"
+            layer-type="base"
+            name="OpenStreetMap"
+          />
+          <LMarker v-if="markerPosition" :lat-lng="markerPosition" />
+        </LMap>
+      </v-container>
+    </v-card>
+  </v-container>
 </template>
 
 <script>
@@ -48,21 +64,18 @@ export default {
     const markerPosition = ref(null);
     const mapRef = ref(null);
 
-    // Initialize the map when it's ready
     const onMapReady = () => {
       const map = mapRef.value.mapObject;
       if (map) {
-        map.locate(); // Attempt to locate the user's position
+        map.locate();
       }
     };
 
-    // Update the map when a new location is found
     const onLocationFound = (e) => {
       center.value = [e.latlng.lat, e.latlng.lng];
       markerPosition.value = e.latlng;
     };
 
-    // Geocode the address to get coordinates
     const geocodeAddress = async () => {
       if (!address.value) return;
 
@@ -85,7 +98,6 @@ export default {
       }
     };
 
-    // Handle map click event to display address
     const onMapClick = async (e) => {
       const { lat, lng } = e.latlng;
       const address = await getAddressFromCoordinates(lat, lng);
@@ -95,7 +107,6 @@ export default {
       }
     };
 
-    // Function to get address from coordinates
     const getAddressFromCoordinates = async (lat, lng) => {
       const url = `https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}&addressdetails=1`;
       try {
@@ -110,7 +121,6 @@ export default {
       return null;
     };
 
-    // Function to open a popup at the given coordinates with the address
     const openPopup = (lat, lng, address) => {
       const map = mapRef.value.mapObject;
       const popupContent = `
@@ -119,10 +129,7 @@ export default {
           <p>${address}</p>
         </div>
       `;
-      const popup = L.popup()
-        .setLatLng([lat, lng])
-        .setContent(popupContent)
-        .openOn(map);
+      const popup = L.popup().setLatLng([lat, lng]).setContent(popupContent).openOn(map);
     };
 
     return {

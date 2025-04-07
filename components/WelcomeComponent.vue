@@ -1,35 +1,51 @@
 <template>
-  <div class="welcome-container">
-  <!-- Brand Logo -->
-    <div class="logo">
-      <img src="~/assets/logo_title.svg" alt="Auxicare Logo" class="logo-img" />
-    </div>
+  <v-container class="text-center py-10">
+    <!-- Brand Logo -->
+    <v-row justify="center">
+      <v-col cols="auto">
+        <img src="~/assets/logo_title.svg" alt="Auxicare Logo" style="width: 150px;" />
+      </v-col>
+    </v-row>
 
     <!-- Description Section -->
-    <div class="description">
-      <h1>Home help as we imagine it!</h1>
-      <p>
-       At Auxicare, our experienced and fulfilled assistants adapt to your desires and needs.
-      </p>
-    </div>
+    <v-row justify="center" class="my-6">
+      <v-col cols="12" md="8">
+        <h1>Home help as we imagine it!</h1>
+        <p>
+          At Auxicare, our experienced and fulfilled assistants adapt to your desires and needs.
+        </p>
+      </v-col>
+    </v-row>
 
     <!-- Make a request Button -->
-    <div class="make-request">
-      <button  class="primary-button" @click="goToMakeRequest">Make a request</button>
-      <h3>Free and without obligation</h3>
-    </div>
-    <div class="buttons">
+    <v-row justify="center" class="mb-4">
+      <v-col cols="auto">
+        <v-btn color="primary" variant="elevated" @click="goToMakeRequest">Make a request</v-btn>
+        <div class="mt-2">
+          <h3>Free and without obligation</h3>
+        </div>
+      </v-col>
+    </v-row>
+
+    <!-- Navigation Buttons -->
+    <v-row justify="center" class="mt-6" dense>
+      <v-col cols="auto">
         <NuxtLink to="/about-us">
-            <button class="secondary-button">About Us</button>
+          <v-btn color="primary" variant="outlined">About Us</v-btn>
         </NuxtLink>
+      </v-col>
+      <v-col cols="auto">
         <NuxtLink to="/contact">
-            <button class="secondary-button">Contact</button>
+          <v-btn color="primary" variant="outlined">Contact</v-btn>
         </NuxtLink>
-                <NuxtLink to="/find-address">
-            <button class="secondary-button">Address Finder 🔍</button>
+      </v-col>
+      <v-col cols="auto">
+        <NuxtLink to="/find-address">
+          <v-btn color="primary" variant="outlined">Address Finder 🔍</v-btn>
         </NuxtLink>
-    </div>
-  </div>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -42,49 +58,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.welcome-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.logo-img {
-  width: 150px;
-  height: auto;
-}
-
-.description {
-  margin-top: 20px;
-}
-
-h1 {
-  font-size: 32px;
-  font-weight: bold;
-  color: var(--accent-primary-1);
-  margin-bottom: 10px;
-}
-
-h3 {
-  font-size: 20px;
-  font-weight: bold;
-  color: #8d8d9b;
-  margin-bottom: 10px;
-}
-
-p {
-  font-size: 16px;
-  color: #555;
-  line-height: 1.5;
-}
-
-.learn-more {
-  margin-top: 20px;
-}
-
-</style>

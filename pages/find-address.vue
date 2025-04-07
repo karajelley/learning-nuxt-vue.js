@@ -1,13 +1,21 @@
 <template>
-    <div>
-        <h1>Welcome to Adddress Finder 🔍</h1>
+  <v-container class="text-center">
+    <v-row justify="center">
+      <v-col cols="12" md="8">
+        <h1>Welcome to Address Finder 🔍</h1>
         <h3>Looking for an address?</h3>
-        <p>Using Veutify and Nuxt Leaflet we will find and display addresses!</p>
+        <p>Using Vuetify and Nuxt Leaflet we will find and display addresses!</p>
+
         <Map />
-        <nav>
+
+        <v-row justify="center" class="mt-4">
+          <v-col cols="auto">
             <NuxtLink to="/">
-                <button class="secondary-button">Home</button>
+              <v-btn color="primary" variant="outlined">Home</v-btn>
             </NuxtLink>
-        </nav>
-    </div>
+          </v-col>
+        </v-row>
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
