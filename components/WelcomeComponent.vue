@@ -3,7 +3,11 @@
     <!-- Brand Logo -->
     <v-row justify="center">
       <v-col cols="auto">
-        <img src="~/assets/logo_title.svg" alt="Auxicare Logo" style="width: 150px;" />
+        <img
+          src="~/assets/logo_title.svg"
+          alt="Auxicare Logo"
+          style="width: 150px"
+        />
       </v-col>
     </v-row>
 
@@ -12,7 +16,8 @@
       <v-col cols="12" md="8">
         <h1>Home help as we imagine it!</h1>
         <p>
-          At Auxicare, our experienced and fulfilled assistants adapt to your desires and needs.
+          At Auxicare, our experienced and fulfilled assistants adapt to your
+          desires and needs.
         </p>
       </v-col>
     </v-row>
@@ -20,7 +25,9 @@
     <!-- Make a request Button -->
     <v-row justify="center" class="mb-4">
       <v-col cols="auto">
-        <v-btn color="primary" variant="elevated" @click="goToMakeRequest">Make a request</v-btn>
+        <v-btn color="primary" variant="elevated" @click="goToMakeRequest"
+          >Make a request</v-btn
+        >
         <div class="mt-2">
           <h3>Free and without obligation</h3>
         </div>
@@ -44,17 +51,27 @@
           <v-btn color="primary" variant="outlined">Address Finder 🔍</v-btn>
         </NuxtLink>
       </v-col>
+      <v-col cols="auto">
+        <NuxtLink to="/care-givers">
+          <v-btn color="primary" variant="outlined">Caregiveres</v-btn>
+        </NuxtLink>
+      </v-col>
+      <v-col cols="auto">
+        <NuxtLink to="/nurses">
+          <v-btn color="primary" variant="outlined">Nurses</v-btn>
+        </NuxtLink>
+      </v-col>
     </v-row>
   </v-container>
 </template>
 
 <script>
 export default {
-  name: 'WelcomeComponent',
+  name: "WelcomeComponent",
   methods: {
     goToMakeRequest() {
-      window.location.href = 'https://www.auxicare.fr';
-    }
-  }
-}
+      window.location.href = "https://www.auxicare.fr";
+    },
+  },
+};
 </script>
