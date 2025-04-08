@@ -20,7 +20,7 @@
         md="4"
         lg="3"
       >
-        <v-card class="pa-4 position-relative" style="height: 200px">
+        <v-card class="pa-4 position-relative" style="height: 250px">
           <!-- Top Left: Type -->
           <!-- Add variant="flat" and text-color="white" to make the bg variable color and text white-->
           <v-chip
@@ -36,7 +36,7 @@
           <v-chip
             class="position-absolute top-0 right-0 ma-2"
             size="small"
-            color="success"
+            color="complement2"
           > 
             {{ caregiver.properties.tiering_auxiliaire }}
           </v-chip>

@@ -11,6 +11,10 @@ const myCustomLightTheme: ThemeDefinition = {
     secondary: '#ff71e4',
     surface: '#ffffff',
     background: '#f9f9f9',
+    lightblue: '#E3FAFE',
+    complement1: '#A480FF',
+    complement2: '#9639BF',
+    complement3: '#FFF8AA',
   }
 }
 

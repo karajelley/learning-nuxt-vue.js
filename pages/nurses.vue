@@ -36,7 +36,7 @@
           <v-chip
             class="position-absolute top-0 right-0 ma-2"
             size="small"
-            color="success"
+            color="complement2"
           > 
             {{ caregiver.properties.statut_du_prescripteur }}
           </v-chip>
