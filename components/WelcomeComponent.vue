@@ -53,7 +53,7 @@
       </v-col>
       <v-col cols="auto">
         <NuxtLink to="/care-givers">
-          <v-btn color="primary" variant="outlined">Caregiveres</v-btn>
+          <v-btn color="primary" variant="outlined">Caregivers</v-btn>
         </NuxtLink>
       </v-col>
       <v-col cols="auto">

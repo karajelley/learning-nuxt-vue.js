@@ -3,7 +3,7 @@
     <!-- Page Title and Home Button -->
     <v-row justify="center" class="mb-6">
       <v-col cols="12" class="text-center">
-        <h1 class="text-h4 font-weight-medium">Nurses</h1>
+        <h1 class="text-h4 font-weight-medium mb-4">Nurses</h1>
         <NuxtLink to="/">
           <v-btn color="primary" variant="outlined">Home</v-btn>
         </NuxtLink>
